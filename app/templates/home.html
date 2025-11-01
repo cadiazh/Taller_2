@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Pokenea · Inicio{% endblock %}
+{% block content %}
+  <div class="card">
+    <h1>Bienvenido a Pokenea</h1>
+    <p class="muted">Explora los Pokeneas y sus habilidades.</p>
+    <p>
+      <a class="btn" href="{{ url_for('app_routes.pokenea_json') }}">Ver JSON aleatorio</a>
+      <a class="btn" href="{{ url_for('app_routes.pokenea_imagen') }}">Ver imagen aleatoria</a>
+      
+    </p>
+  </div>
+
+  {% if muestra %}
+  <h2 style="margin-top:24px;">Muestra</h2>
+  <div class="grid">
+    {% for p in muestra %}
+    <div class="card">
+      <h3 style="margin:0 0 8px 0">{{ p.nombre }}</h3>
+      <img src="{{ p.imagen }}" alt="{{ p.nombre }}">
+      <div class="muted">Altura: {{ p.altura }} · Habilidad: {{ p.habilidad }}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endblock %}

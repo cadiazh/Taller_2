@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pokenea</title>
-    <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }
-      .card { max-width: 520px; border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
-      img { max-width: 100%; border-radius: 8px; }
-      .muted { color: #6b7280; font-size: 0.9rem; }
-      h1 { margin: 0.25rem 0 0.5rem; }
-    </style>
-  </head>
-  <body>
-    <div class="card">
-      <div class="muted">Pokenea aleatorio</div>
-      <h1>{{ pokenea.nombre }}</h1>
-      <img src="{{ pokenea.imagen }}" alt="{{ pokenea.nombre }}" />
-      <p><em>"{{ pokenea.frase }}"</em></p>
-      <hr />
-      <p class="muted"><strong>Container ID:</strong> {{ container_id }}</p>
-    </div>
-  </body>
-</html>
+{% extends "base.html" %}
+{% block title %}Pokenea · {{ pokenea.nombre }}{% endblock %}
+{% block content %}
+  <style>
+    .pokenea-img { 
+      max-width: 300px; 
+      border-radius: 8px; 
+      display: block; 
+      margin: 0 auto;
+    }
+  </style>
+  <div class="card">
+    <div class="muted">Pokenea aleatorio</div>
+    <h1 style="margin:6px 0 10px">{{ pokenea.nombre }}</h1>
+    <img class="pokenea-img" src="{{ pokenea.imagen }}" alt="{{ pokenea.nombre }}">
+    <p><em>"{{ pokenea.frase }}"</em></p>
+  </div>
+{% endblock %}
+

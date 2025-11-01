@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Pokenea{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <style>
+    body { font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 0; background: #fafafa; }
+    .nav { display:flex; gap:1rem; padding:12px 16px; background:#111827; color:#fff; align-items:center; }
+    .nav a { color:#fff; text-decoration:none; }
+    .wrap { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+    .card { border:1px solid #e5e7eb; border-radius:12px; background:#fff; box-shadow:0 1px 6px rgba(0,0,0,.06); padding:16px; }
+    img { max-width:100%; border-radius:8px; }
+    .muted { color:#6b7280; font-size:.9rem; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:16px; }
+    .btn { display:inline-block; padding:10px 14px; border-radius:10px; border:1px solid #e5e7eb; background:#fff; }
+    .btn:hover { background:#f3f4f6; }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <strong>Pokenea</strong>
+    <a href="{{ url_for('app_routes.home') }}">Inicio</a>
+    <a href="{{ url_for('app_routes.pokenea_json') }}">JSON aleatorio</a>
+    <a href="{{ url_for('app_routes.pokenea_imagen') }}">Imagen aleatoria</a>
+    <span style="margin-left:auto" class="muted">Container: {{ container_id if container_id else '' }}</span>
+  </nav>
+  <div class="wrap">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>
